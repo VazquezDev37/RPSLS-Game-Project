@@ -9,19 +9,29 @@ class Game {
 
 }
 
+displayGameWinner(); {
+  if(this.playerOne.score > this.playerTwo.score) {
+    console.log(this.playerOne.name + " wins this game!");
+  }
+  else {
+    console.log(this.playerTwo.name + " wins this game!");
+  }
+}
+
+
 module.exports = Game;
 
 
 
-// Can be separate functions:
+// Can be separate functions: *
 
 // make determination playerTwo = New Human or new AI
 
-//playerTwo.selectGesture()
+//playerTwo.selectGesture() *
 
-//Rules
+//Rules method first thing
 
-//Select the game type
+//Select the game type 
 
 
 // Battle loop selectGesture, decide winner requirment met player1 or player2 get 2 win total
@@ -30,4 +40,4 @@ module.exports = Game;
 
 //play again
 
-//rungame
+//rungame  // method with console.log

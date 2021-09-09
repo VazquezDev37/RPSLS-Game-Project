@@ -11,7 +11,7 @@ class Human extends Player
     }
 
     selectGesture(){
-        let userInput = prompt("What is your choice, for lizard press 1 \n. for spock press 2 \n. for paper press 3 \n. for rock press 4 \n. ");
+        let userInput = prompt(" What is your choice, for lizard press 1 \n. for spock press 2 \n. for paper press 3 \n. for rock press 4 \n. for scissors press 5 \n. ");
         switch(userInput){
             case '1':
              this.chosenGesture = "lizard"
@@ -28,7 +28,7 @@ class Human extends Player
              break;
        
              case '5': 
-              this.chosenGesture = ""
+              this.chosenGesture = "scissors"
              break;
 
              default:
@@ -50,8 +50,8 @@ class Human extends Player
 //assign user input to this.chosenGesture
 
 
-let playerTest = new Human();
-playerTest.selectGesture();
+//let playerTest = new Human();
+//playerTest.selectGesture();
 
 module.exports = Human;
 
