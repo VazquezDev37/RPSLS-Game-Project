@@ -1,3 +1,5 @@
+
+
 class Game {
     constructor() {
       this.playerOne = new Player("human");
@@ -6,6 +8,9 @@ class Game {
     }
 
 }
+
+module.exports = Game;
+
 
 
 // Can be separate functions:
