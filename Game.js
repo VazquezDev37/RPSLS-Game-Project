@@ -1,24 +1,57 @@
-
+const Player = require("./Player");
+const Human = require("./Human");
+const AI = require("./AI");
+const prompt = require ("prompt-sync")();
 
 class Game {
     constructor() {
-      this.playerOne = new Player("human");
-      this.playerTwo = new Player("AI");
+      this.playerOne = new Human("human");
+      this.playerTwo = null;
   
+    }
+
+    displayRules(){
+
+      console.log("Welcome to the RPSLS Game!");
+      console.log("At the same time, two players display one of the five symbols and then the results.");
+      console.log("The first player to get two points first will win the game!");
+    }
+
+    selectGameType(){
+      let gameOption = prompt ("Select game: 1. Human vs. Human 2. Human vs. Computer")
+      switch (gameOption){
+        case "1":
+          this.playerTwo = new Human ();
+            break;
+            case "2":
+              this.playerTwo = new AI ();
+              break;
+              default:
+      }
+    }
+
+    displayGameWinner() {
+      if(this.playerOne.score > this.playerTwo.score) {
+        console.log(this.playerOne.name + " wins this game!");
+      }
+      else {
+        console.log(this.playerTwo.name + " wins this game!");
+      }
+    }
+
+    runGame(){
+      this.displayRules()
+      this.selectGameType()
     }
 
 }
 
-displayGameWinner(); {
-  if(this.playerOne.score > this.playerTwo.score) {
-    console.log(this.playerOne.name + " wins this game!");
-  }
-  else {
-    console.log(this.playerTwo.name + " wins this game!");
-  }
-}
 
+let gameTest = new Game();
+gameTest.displayRules();
+gameTest.selectGameType();
 
+ 
 module.exports = Game;
 
 
@@ -29,9 +62,9 @@ module.exports = Game;
 
 //playerTwo.selectGesture() *
 
-//Rules method first thing
+//Rules method first thing *
 
-//Select the game type 
+//Select the game type *
 
 
 // Battle loop selectGesture, decide winner requirment met player1 or player2 get 2 win total

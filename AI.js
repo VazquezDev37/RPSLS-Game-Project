@@ -11,3 +11,5 @@ class AI extends Player{
         this.chosenGesture = this.gestures[rand];
     }
 }
+
+module.exports = AI;
