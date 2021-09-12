@@ -3,7 +3,7 @@ class Player {
       this.name = "";
       this.score = 0;
       this.choice = "";
-      this.jesture = ['rock', 'paper', 'scissors', 'spock', 'lizard'];
+      this.Gesture = ['rock', 'paper', 'scissors', 'spock', 'lizard'];
       this.chosenGesture = ""
 
     }

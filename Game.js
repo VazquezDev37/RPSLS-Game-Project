@@ -45,15 +45,15 @@ class Game {
     }
 
     getResult (){
-      if (this.playerOne.chosenGesture == this.playerTwo.chosenGesture){
+      if (this.playerOne.chosenGesture === this.playerTwo.chosenGesture){
         console.log ("Its a draw!!");
 
         while (this.playerOne.wins < 3 && this.playerTwo.wins < 3) {
           this.playerOne.selectGesture();
           this.playerTwo.selectGesture();
           
-          if (this.playerOne.chosenGesture === "paper") {
-              if (this.playerTwo.chosenGesture === "rock") {
+          if (this.playerOne.selectGesture === "paper") {
+              if (this.playerTwo.selectGesture === "rock") {
                   this.playerOne.wins ++;
               } else if (this.playerTwo.selectGesture === "scissors") {
                       this.playerTwo.wins ++;
@@ -87,6 +87,7 @@ let gameTest = new Game();
 gameTest.displayRules();
 gameTest.selectGameType();
 gameTest.getResult();
+//gameTest.displayGamwWinner();
 
  
 module.exports = Game;

@@ -50,8 +50,8 @@ class Human extends Player
 //assign user input to this.chosenGesture
 
 
-//let playerTest = new Human();
-//playerTest.selectGesture();
+let playerTest = new Human();
+playerTest.selectGesture();
 
 module.exports = Human;
 
