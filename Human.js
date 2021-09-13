@@ -6,6 +6,7 @@ class Human extends Player
 {
     constructor(){
         super();
+        this.name = "Human";
         //unqiue to human
         //this.name = prompt? or method?
     }
@@ -50,8 +51,8 @@ class Human extends Player
 //assign user input to this.chosenGesture
 
 
-let playerTest = new Human();
-playerTest.selectGesture();
+//let playerTest = new Human();
+//playerTest.selectGesture();
 
 module.exports = Human;
 

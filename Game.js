@@ -42,11 +42,17 @@ class Game {
     runGame(){
       this.displayRules()
       this.selectGameType()
+      this.getResult()
+      
     }
 
     getResult (){
-      if (this.playerOne.chosenGesture === this.playerTwo.chosenGesture){
-        console.log ("Its a draw!!");
+
+      let gameResult = prompt ("Choose your gesture: For lizard press 1, for spock press 2, for paper press 3, for rock press 4, for scissors press 5");
+
+      
+        if (this.playerOne.chosenGesture === this.playerTwo.chosenGesture){
+       
 
         while (this.playerOne.wins < 3 && this.playerTwo.wins < 3) {
           this.playerOne.selectGesture();
@@ -70,16 +76,23 @@ class Game {
               }
                     if (this.playerOne.selectGesture === "rock") {
                     if (this.playerTwo.selectGesture === "paper") {
-                        this.playerTwo.wins ++ 
+                       this.playerTwo.wins ++ 
                   }    else if (this.playerTwo.selectGesture === "scissors") {
                           this.playerOne.wins ++;
                       }
                   
             }
           }
-        
           
+    
+
+    playAgain (){
+
+      let playOption = prompt ("Would you like to play again: press 1 for yes or press 2 for no");
       
+          }
+                  
+         
 }
 
 
@@ -87,7 +100,8 @@ let gameTest = new Game();
 gameTest.displayRules();
 gameTest.selectGameType();
 gameTest.getResult();
-//gameTest.displayGamwWinner();
+gameTest.displayGameWinner();
+gameTest.playAgain();
 
  
 module.exports = Game;
