@@ -89,7 +89,15 @@ class Game {
     playAgain (){
 
       let playOption = prompt ("Would you like to play again: press 1 for yes or press 2 for no");
-      
+        switch(playOption){
+          case "1":
+            playOption = this.runGame();
+            break;
+            case "2":
+              console.log ("Have a nice day");
+              break;
+              default:
+        }
           }
                   
          
