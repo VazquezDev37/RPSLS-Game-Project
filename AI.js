@@ -1,4 +1,4 @@
-const Player = require("./Player");
+const Player = require("./player");
 
 class AI extends Player{
     constructor(){
@@ -8,7 +8,7 @@ class AI extends Player{
 
     selectGesture(){
         let rand = Math.floor(Math.random()* this.gestures.length);
-        this.chosenGesture = this.gestures[rand];
+        this.chosenGestures = this.gestures[rand];
     }
 }
 

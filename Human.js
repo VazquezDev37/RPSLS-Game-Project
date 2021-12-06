@@ -2,47 +2,17 @@
 const Player = require('./Player');
 const prompt = require('prompt-sync')();
 
-class Human extends Player
-{
+class Human extends Player{
     constructor(){
         super();
-        this.name = "Human";
-        //unqiue to human
-        //this.name = prompt? or method?
+        this.name = prompt("what is your name?")
     }
-
     selectGesture(){
-        let userInput = prompt(" What is your choice, for lizard press 1 \n. for spock press 2 \n. for paper press 3 \n. for rock press 4 \n. for scissors press 5 \n. ");
-        switch(userInput){
-            case '1':
-             this.chosenGesture = "lizard"
-            break;
-            case '2': 
-             this.chosenGesture = "spock"
-            break;
-            case '3': 
-             this.chosenGesture = "paper"
-             break;
-       
-             case '4': 
-              this.chosenGesture = "rock"
-             break;
-       
-             case '5': 
-              this.chosenGesture = "scissors"
-             break;
-
-             default:
-             break;
-       
-           }
-
-           console.log(this.chosenGesture);
-
-
-        
+        let selectedGesture = prompt("Enter 0 for rock, 1 for paper, 2 for scissors, 3 for lizzard, 4 for spock")
+      this.chosenGestures = this.gestures[selectedGesture]  
     }
 }
+   
 
 //display the choices
 

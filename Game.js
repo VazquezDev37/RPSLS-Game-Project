@@ -1,14 +1,12 @@
-const Player = require("./Player");
-const Human = require("./Human");
-const AI = require("./AI");
+const Human = require("./human");
+const AI = require ("./ai");
 const prompt = require ("prompt-sync")();
 
-class Game {
-    constructor() {
-      this.playerOne = new Human("human");
-      this.playerTwo = null;
-  
-    }
+class Game{
+  constructor(){
+      this.player1 = new Human();
+      this.player2 = null
+  }
 
     displayRules(){
 
@@ -17,18 +15,21 @@ class Game {
       console.log("The first player to get two points first will win the game!");
     }
 
-    selectGameType(){
-      let gameOption = prompt ("Select game: 1. Human vs. Human 2. Human vs. Computer")
-      switch (gameOption){
-        case "1":
-          this.playerTwo = new Human ();
-            break;
-            case "2":
-              this.playerTwo = new AI ();
-              break;
-              default:
+    // playerOne = new Human();
+    // make determination playerTwo = New Human or new AI
+    choosePlayers(){
+      let choice = prompt("Enter 1 to play with a friend or 2 to play against the computer ")
+      switch(choice){
+          case '1':
+               this.player2 = new Human();
+      break;
+           case '2':
+               this.player2 = new AI();
+      break;
+          default:
+      break;
       }
-    }
+  }
 
     displayGameWinner() {
       if(this.playerOne.score > this.playerTwo.score) {
@@ -39,12 +40,65 @@ class Game {
       }
     }
 
-    runGame(){
-      this.displayRules()
-      this.selectGameType()
-      this.getResult()
-      
-    }
+    
+
+    battle(){
+
+      while(this.player1.wins < 3 && this.player2.wins < 3){
+          this.player1.selectGesture();
+          this.player2.selectGesture();
+      if(this.player1.chosenGestures === "0" && this.player2.chosenGestures === "2" ){
+          console.log(`${this.player1.name} won this round`)
+          this.player1.wins += 1
+      }
+      else if(this.player1.chosenGestures === "2" && this.player2.chosenGestures === "1" ){
+          console.log(`${this.player1.name} won this round`)
+          this.player1.wins += 1
+      }
+      else if(this.player1.chosenGestures === "1" && this.player2.chosenGestures === "0"){
+          console.log(`${this.player1.name} won this round`)
+          this.player1.wins += 1
+          }
+      else if(this.player1.chosenGestures === "0" && this.player2.chosenGestures === "3"){
+          console.log(`${this.player1.name} won this round`)
+          this.player1.wins += 1
+          }
+      else if(this.player1.chosenGestures === "3" && this.player2.chosenGestures === "4"){
+          console.log(`${this.player1.name} won this round`)
+          this.player1.wins += 1
+          }
+      else if(this.player1.chosenGestures === "4" && this.player2.chosenGestures === "2"){
+          console.log(`${this.player1.name} won this round`)
+          this.player1.wins += 1
+          }
+      else if(this.player1.chosenGestures === "2" && this.player2.chosenGestures === "3"){
+          console.log(`${this.player1.name} won this round`)
+          this.player1.wins += 1
+          }
+      else if(this.player1.chosenGestures === "3" && this.player2.chosenGestures === "1"){
+          console.log(`${this.player1.name} won this round`)
+          this.player1.wins += 1
+          }
+      else if(this.player1.chosenGestures === "1" && this.player2.chosenGestures === "4"){
+          console.log(`${this.player1.name} won this round`)
+          this.player1.wins += 1
+          }
+      else if(this.player1.chosenGestures === "4" && this.player2.chosenGestures === "0"){
+          console.log(`${this.player1.name} won this round`)
+          this.player1.wins += 1
+          }
+      else if(this.player1.chosenGestures === this.player2.chosenGestures){
+          console.log("Tie game")
+      }
+          else{
+              console.log(`${this.player2.name} won this round`)
+      this.player2.wins += 1
+          }
+      }
+  }
+
+   // displayChoice();
+
 
     getResult (){
 
@@ -99,17 +153,20 @@ class Game {
               default:
         }
           }
-                  
+   
+           //rungame
+      runGame(){
+        this.rules();
+        this.choosePlayers();
+        this.battle();
+        this.printWinner();
+        this.playAgain();
+      }
          
 }
 
 
-let gameTest = new Game();
-gameTest.displayRules();
-gameTest.selectGameType();
-gameTest.getResult();
-gameTest.displayGameWinner();
-gameTest.playAgain();
+
 
  
 module.exports = Game;

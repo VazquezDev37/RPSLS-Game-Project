@@ -1,5 +1,5 @@
-const Game = require('./Game');
-const Human = require('./human');
+const Game = require('./game');
+
 
 let myGame = new Game();
-myGame.rungame();
+myGame.runGame();
