@@ -1,4 +1,3 @@
-
 const Player = require('./Player');
 const prompt = require('prompt-sync')();
 
@@ -8,7 +7,7 @@ class Human extends Player{
         this.name = prompt("what is your name?")
     }
     selectGesture(){
-        let selectedGesture = prompt("Enter 0 for rock, 1 for paper, 2 for scissors, 3 for lizzard, 4 for spock")
+        let selectedGesture = prompt("Enter 0 for rock, 1 for paper, 2 for scissors, 3 for lizard, 4 for spock")
       this.chosenGestures = this.gestures[selectedGesture]  
     }
 }
@@ -16,15 +15,7 @@ class Human extends Player{
 
 //display the choices
 
-//user input
+//Selected Gestures
 
-//assign user input to this.chosenGesture
-
-
-//let playerTest = new Human();
-//playerTest.selectGesture();
 
 module.exports = Human;
-
-
-
